@@ -6,12 +6,12 @@ using Android.Views;
 using Android.Webkit;
 using Android.Widget;
 using Android.OS;
-using Ahmedapp.Views;
-using Ahmedapp.Models;
+using AhmedMobilApplication.Views;
+using AhmedMobilApplication.Models;
 
-namespace Ahmedapp
+namespace AhmedMobilApplication
 {
-    [Activity(Label = "Ahmedapp", MainLauncher = true)]
+    [Activity(Label = "AhmedMobilApplication", MainLauncher = true)]
     public class MainActivity : Activity
     {
         protected override void OnCreate(Bundle bundle)
@@ -34,8 +34,9 @@ namespace Ahmedapp
 
             // Load the rendered HTML into the view with a base URL 
             // that points to the root of the bundled Assets folder
-            //web
+            //webView.LoadDataWithBaseURL("file:///android_asset/", page, "text/html", "UTF-8", null);
             webView.LoadUrl("http://ahmedabdullajev.byethost14.com/Mobile/index.html");
+
         }
 
         private class HybridWebViewClient : WebViewClient
@@ -66,7 +67,8 @@ namespace Ahmedapp
                     // Build some javascript using the C#-modified result
                     var js = string.Format("SetLabelText('{0}');", prepended);
 
-                    webView.LoadUrl("javascript:" + js);
+                     webView.LoadUrl("javascript:" + js);
+
                 }
 
                 return true;
